@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
-import Link from "next/link"
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import {
   Car,
   Play,
@@ -22,55 +22,55 @@ import {
   Globe,
   Menu,
   X,
-} from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { translations } from "@/lib/translations"
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { translations } from "@/lib/translations";
 
-type Language = "en" | "sq"
+type Language = "en" | "sq";
 
 export default function HomePage() {
-  const [scrollY, setScrollY] = useState(0)
-  const [isVisible, setIsVisible] = useState(false)
-  const [currentLanguage, setCurrentLanguage] = useState<Language>("en")
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [scrollY, setScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState<Language>("en");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const t = translations[currentLanguage]
+  const t = translations[currentLanguage];
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener("scroll", handleScroll)
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
 
     // Trigger animations after component mounts
-    setTimeout(() => setIsVisible(true), 500)
+    setTimeout(() => setIsVisible(true), 500);
 
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
-  }
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   const changeLanguage = (lang: Language) => {
-    setCurrentLanguage(lang)
-    setIsMobileMenuOpen(false)
-  }
+    setCurrentLanguage(lang);
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Responsive Floating Header */}
-      <header
-  className={`fixed top-3 sm:top-6 left-1/2 transform -translate-x-1/2 z-50 w-[95%] sm:w-auto transition-opacity duration-300`}
->
-        <div className="bg-gray-900/90 backdrop-blur-xl rounded-full px-4 sm:px-8 py-3 sm:py-4 shadow-2xl border border-red-900/50">
+      <header className={`fixed top-0 left-0 right-0 z-50`}>
+        <div className="bg-gray-900/90 backdrop-blur-xl px-4 sm:px-8 py-3 sm:py-4 shadow-2xl border-b border-red-900/50">
           <div className="flex items-center justify-between sm:justify-center sm:space-x-8">
             <div className="flex items-center space-x-2">
               <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center">
                 {/* Logo */}
                 <Car className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
               </div>
-              <span className="font-bold text-white text-sm sm:text-base">OV AUTOMOTIVE</span>
+              <span className="font-bold text-white text-sm sm:text-base">
+                OV AUTOMOTIVE GROUP
+              </span>
             </div>
 
             {/* Desktop Navigation */}
@@ -96,9 +96,15 @@ export default function HomePage() {
             <div className="flex items-center space-x-2 sm:space-x-4">
               {/* Language Selector */}
               <div className="relative group">
-                <Button variant="ghost" size="sm" className="text-gray-300 hover:text-red-400 p-1 sm:p-2">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-gray-300 hover:text-red-400 p-1 sm:p-2"
+                >
                   <Globe className="h-4 w-4" />
-                  <span className="ml-1 text-xs sm:text-sm">{currentLanguage.toUpperCase()}</span>
+                  <span className="ml-1 text-xs sm:text-sm">
+                    {currentLanguage.toUpperCase()}
+                  </span>
                 </Button>
                 <div className="absolute top-full right-0 mt-2 bg-gray-800 rounded-lg shadow-xl border border-red-900/30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                   {(["en", "sq"] as Language[]).map((lang) => (
@@ -106,7 +112,9 @@ export default function HomePage() {
                       key={lang}
                       onClick={() => changeLanguage(lang)}
                       className={`block w-full text-left px-3 py-2 text-sm hover:bg-red-900/20 first:rounded-t-lg last:rounded-b-lg ${
-                        currentLanguage === lang ? "text-red-400" : "text-gray-300"
+                        currentLanguage === lang
+                          ? "text-red-400"
+                          : "text-gray-300"
                       }`}
                     >
                       {lang === "en" ? "English" : "Shqip"}
@@ -122,26 +130,38 @@ export default function HomePage() {
                 className="lg:hidden text-gray-300 hover:text-red-400 min-w-[44px] min-h-[44px] p-2 flex items-center justify-center"
                 onClick={toggleMobileMenu}
               >
-                {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                {isMobileMenuOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
               </Button>
 
               {/* Desktop CTA Button */}
-              <Button className="hidden sm:block bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-white rounded-full px-4 sm:px-6 py-2 text-xs sm:text-sm font-medium shadow-lg">
+              {/* <Button className="hidden sm:block bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-white rounded-full px-4 sm:px-6 py-2 text-xs sm:text-sm font-medium shadow-lg">
                 {t.cta.getStarted}
-              </Button>
+              </Button> */}
             </div>
           </div>
 
           {/* Mobile Navigation Menu */}
           {isMobileMenuOpen && (
-            <div className="lg:hidden fixed inset-0 z-[60] w-screen h-screen bg-gray-900" onClick={toggleMobileMenu}>
-              <div className="h-full flex flex-col" onClick={(e) => e.stopPropagation()}>
+            <div
+              className="lg:hidden fixed inset-0 z-[60] w-screen h-screen bg-gray-900"
+              onClick={toggleMobileMenu}
+            >
+              <div
+                className="h-full flex flex-col"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <div className="flex items-center justify-between p-6 border-b border-red-900/30">
                   <div className="flex items-center space-x-3">
                     <div className="w-8 h-8 bg-gradient-to-r from-red-600 to-red-800 rounded-full flex items-center justify-center">
                       <span className="text-white font-bold text-sm">OV</span>
                     </div>
-                    <span className="text-white font-bold text-lg">OV AUTOMOTIVE</span>
+                    <span className="text-white font-bold text-lg">
+                      OV AUTOMOTIVE GROUP
+                    </span>
                   </div>
                   <Button
                     variant="ghost"
@@ -153,7 +173,7 @@ export default function HomePage() {
                   </Button>
                 </div>
 
-                <nav className="flex flex-col justify-center flex-1 px-6 py-8">
+                <nav className="flex flex-col  flex-1 px-6 py-8">
                   <div className="space-y-6">
                     {[
                       { key: "home", href: "#home" },
@@ -203,12 +223,12 @@ export default function HomePage() {
                     </div>
 
                     {/* CTA Button */}
-                    <Button
+                    {/* <Button
                       className="w-full bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg min-h-[56px]"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {t.cta.getStarted}
-                    </Button>
+                    </Button> */}
                   </div>
                 </nav>
               </div>
@@ -218,7 +238,10 @@ export default function HomePage() {
       </header>
 
       {/* Responsive Full-Screen Hero */}
-      <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section
+        id="home"
+        className="relative h-screen flex items-center justify-center overflow-hidden"
+      >
         <div className="absolute inset-0">
           {/* Hero Image */}
           <Image
@@ -235,7 +258,11 @@ export default function HomePage() {
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl">
             <div
-              className={`space-y-6 sm:space-y-8 transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+              className={`space-y-6 sm:space-y-8 transform transition-all duration-1000 ${
+                isVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-10 opacity-0"
+              }`}
             >
               <Badge className="bg-red-900/30 backdrop-blur-sm text-red-300 border-red-600/40 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium">
                 {t.hero.badge}
@@ -289,8 +316,12 @@ export default function HomePage() {
             <Badge className="bg-red-900/30 text-red-400 border-red-600/40 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
               {t.services.badge}
             </Badge>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">{t.services.title}</h2>
-            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">{t.services.subtitle}</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
+              {t.services.title}
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
+              {t.services.subtitle}
+            </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -323,18 +354,33 @@ export default function HomePage() {
                     <service.icon className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                   </div>
                   <CardTitle className="text-xl sm:text-2xl font-bold text-white mb-2">
-                    {t.services.items[service.titleKey as keyof typeof t.services.items]}
+                    {
+                      t.services.items[
+                        service.titleKey as keyof typeof t.services.items
+                      ]
+                    }
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="px-4 sm:px-6">
                   <p className="text-gray-300 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
-                    {t.services.descriptions[service.descriptionKey as keyof typeof t.services.descriptions]}
+                    {
+                      t.services.descriptions[
+                        service.descriptionKey as keyof typeof t.services.descriptions
+                      ]
+                    }
                   </p>
                   <ul className="space-y-2">
                     {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-xs sm:text-sm text-gray-400">
+                      <li
+                        key={featureIndex}
+                        className="flex items-center text-xs sm:text-sm text-gray-400"
+                      >
                         <div className="w-1.5 h-1.5 bg-red-500 rounded-full mr-3"></div>
-                        {t.services.features[feature as keyof typeof t.services.features]}
+                        {
+                          t.services.features[
+                            feature as keyof typeof t.services.features
+                          ]
+                        }
                       </li>
                     ))}
                   </ul>
@@ -352,8 +398,12 @@ export default function HomePage() {
             <Badge className="bg-red-900/30 text-red-400 border-red-600/40 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
               {t.products.badge}
             </Badge>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">{t.products.title}</h2>
-            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">{t.products.subtitle}</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
+              {t.products.title}
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
+              {t.products.subtitle}
+            </p>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
@@ -383,17 +433,29 @@ export default function HomePage() {
                 <div className="relative overflow-hidden rounded-xl sm:rounded-2xl mb-3 sm:mb-4 aspect-square bg-gray-800 border border-red-900/30">
                   <Image
                     src={product.image || "/placeholder.svg"}
-                    alt={t.products.items[product.nameKey as keyof typeof t.products.items]}
+                    alt={
+                      t.products.items[
+                        product.nameKey as keyof typeof t.products.items
+                      ]
+                    }
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-red-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-white mb-1 sm:mb-2 group-hover:text-red-400 transition-colors">
-                  {t.products.items[product.nameKey as keyof typeof t.products.items]}
+                  {
+                    t.products.items[
+                      product.nameKey as keyof typeof t.products.items
+                    ]
+                  }
                 </h3>
                 <p className="text-gray-400 text-sm sm:text-base">
-                  {t.products.descriptions[product.descKey as keyof typeof t.products.descriptions]}
+                  {
+                    t.products.descriptions[
+                      product.descKey as keyof typeof t.products.descriptions
+                    ]
+                  }
                 </p>
               </div>
             ))}
@@ -409,24 +471,36 @@ export default function HomePage() {
               <Badge className="bg-red-900/30 text-red-400 border-red-600/40 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
                 {t.about.badge}
               </Badge>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">{t.about.title}</h2>
-              <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 leading-relaxed">{t.about.description1}</p>
-              <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 leading-relaxed">{t.about.description2}</p>
-{/* grid grid-cols-3 gap-4 sm:gap-8 mb-6 sm:mb-8 */}
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
+                {t.about.title}
+              </h2>
+              <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 leading-relaxed">
+                {t.about.description1}
+              </p>
+              <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 leading-relaxed">
+                {t.about.description2}
+              </p>
+              {/* grid grid-cols-3 gap-4 sm:gap-8 mb-6 sm:mb-8 */}
               <div className="flex items-center justify-center mb-6 sm:mb-8">
-                {[
-                  { icon: Shield, labelKey: "quality", value: "100%" },
-                ].map((stat, index) => (
-                  <div key={index} className="text-center">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-red-600 to-red-800 rounded-xl flex items-center justify-center mx-auto mb-2 sm:mb-3">
-                      <stat.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                {[{ icon: Shield, labelKey: "quality", value: "100%" }].map(
+                  (stat, index) => (
+                    <div key={index} className="text-center">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-red-600 to-red-800 rounded-xl flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                        <stat.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                      </div>
+                      <div className="text-xl sm:text-2xl font-bold text-white mb-1">
+                        {stat.value}
+                      </div>
+                      <div className="text-xs sm:text-sm text-gray-400">
+                        {
+                          t.about.stats[
+                            stat.labelKey as keyof typeof t.about.stats
+                          ]
+                        }
+                      </div>
                     </div>
-                    <div className="text-xl sm:text-2xl font-bold text-white mb-1">{stat.value}</div>
-                    <div className="text-xs sm:text-sm text-gray-400">
-                      {t.about.stats[stat.labelKey as keyof typeof t.about.stats]}
-                    </div>
-                  </div>
-                ))}
+                  )
+                )}
               </div>
             </div>
 
@@ -445,7 +519,9 @@ export default function HomePage() {
                     <Zap className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                   </div>
                   <div>
-                    <div className="text-base sm:text-lg font-bold text-white">{t.about.innovation.title}</div>
+                    <div className="text-base sm:text-lg font-bold text-white">
+                      {t.about.innovation.title}
+                    </div>
                     {/* <div className="text-xs sm:text-sm text-gray-400">{t.about.innovation.subtitle}</div> */}
                   </div>
                 </div>
@@ -462,8 +538,12 @@ export default function HomePage() {
             <Badge className="bg-red-900/30 text-red-400 border-red-600/40 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
               {t.contact.badge}
             </Badge>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">{t.contact.title}</h2>
-            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">{t.contact.subtitle}</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
+              {t.contact.title}
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
+              {t.contact.subtitle}
+            </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
@@ -496,15 +576,27 @@ export default function HomePage() {
                     <contact.icon className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                   </div>
                   <CardTitle className="text-lg sm:text-xl font-bold text-white">
-                    {t.contact.items[contact.titleKey as keyof typeof t.contact.items]}
+                    {
+                      t.contact.items[
+                        contact.titleKey as keyof typeof t.contact.items
+                      ]
+                    }
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="px-4 sm:px-6">
                   <p className="text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">
-                    {t.contact.content[contact.contentKey as keyof typeof t.contact.content]}
+                    {
+                      t.contact.content[
+                        contact.contentKey as keyof typeof t.contact.content
+                      ]
+                    }
                   </p>
                   <Button className="bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-white rounded-full px-4 sm:px-6 py-2 text-sm sm:text-base w-full sm:w-auto">
-                    {t.contact.actions[contact.actionKey as keyof typeof t.contact.actions]}
+                    {
+                      t.contact.actions[
+                        contact.actionKey as keyof typeof t.contact.actions
+                      ]
+                    }
                   </Button>
                 </CardContent>
               </Card>
@@ -522,9 +614,13 @@ export default function HomePage() {
                 <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center">
                   <Car className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                 </div>
-                <span className="text-lg sm:text-xl font-bold">OV AUTOMOTIVE</span>
+                <span className="text-lg sm:text-xl font-bold">
+                  OV AUTOMOTIVE
+                </span>
               </div>
-              <p className="text-gray-400 leading-relaxed text-sm sm:text-base">{t.footer.description}</p>
+              <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
+                {t.footer.description}
+              </p>
               <div className="flex space-x-3 sm:space-x-4">
                 {[Facebook, Instagram, Linkedin].map((Icon, index) => (
                   <div
@@ -553,7 +649,11 @@ export default function HomePage() {
             ].map((section, index) => (
               <div key={index}>
                 <h4 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6 text-white">
-                  {t.footer.sections[section.titleKey as keyof typeof t.footer.sections]}
+                  {
+                    t.footer.sections[
+                      section.titleKey as keyof typeof t.footer.sections
+                    ]
+                  }
                 </h4>
                 <ul className="space-y-2 sm:space-y-3">
                   {section.items.map((item, itemIndex) => (
@@ -572,7 +672,9 @@ export default function HomePage() {
           </div>
 
           <div className="border-t border-red-900/20 mt-8 sm:mt-12 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-            <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">{t.footer.copyright}</p>
+            <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
+              {t.footer.copyright}
+            </p>
             <div className="flex flex-wrap justify-center sm:justify-end space-x-4 sm:space-x-6">
               {["privacy", "terms", "cookies"].map((item) => (
                 <Link
@@ -588,5 +690,5 @@ export default function HomePage() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
