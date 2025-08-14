@@ -5,16 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   Car,
-  Play,
   Shield,
-  Award,
-  Users,
   Phone,
   Mail,
   MapPin,
   Instagram,
   Facebook,
-  Linkedin,
   ChevronRight,
   Zap,
   Settings,
@@ -22,6 +18,8 @@ import {
   Globe,
   Menu,
   X,
+  LucideIcon,
+  BriefcaseBusiness
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -29,6 +27,17 @@ import { Badge } from "@/components/ui/badge";
 import { translations } from "@/lib/translations";
 
 type Language = "en" | "sq";
+
+interface SocialLink {
+  Icon: LucideIcon;
+  link: string;
+}
+
+const socialLinks: SocialLink[] = [
+  { Icon: Facebook, link: 'https://www.facebook.com/' },
+  { Icon: Instagram, link: 'https://www.instagram.com/' },
+];
+
 
 export default function HomePage() {
   const [scrollY, setScrollY] = useState(0);
@@ -264,7 +273,7 @@ export default function HomePage() {
                   : "translate-y-10 opacity-0"
               }`}
             >
-              <Badge className="bg-red-900/30 backdrop-blur-sm text-red-300 border-red-600/40 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium">
+              <Badge className="mt-10 bg-red-900/30 backdrop-blur-sm text-red-300 border-red-600/40 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium">
                 {t.hero.badge}
               </Badge>
 
@@ -281,6 +290,7 @@ export default function HomePage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
+                <Link href="#services">
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-white rounded-full px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold shadow-xl group w-full sm:w-auto"
@@ -288,6 +298,7 @@ export default function HomePage() {
                   {t.hero.cta.explore}
                   <ChevronRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
+                </Link>
 
                 {/* <Button
                   size="lg"
@@ -324,7 +335,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {[
               {
                 icon: Car,
@@ -342,6 +353,12 @@ export default function HomePage() {
                 icon: Settings,
                 titleKey: "technical",
                 descriptionKey: "technicalDesc",
+                features: ["guide", "support", "warranty"],
+              },
+              {
+                icon: BriefcaseBusiness,
+                titleKey: "B2B",
+                descriptionKey: "b2bDesc",
                 features: ["guide", "support", "warranty"],
               },
             ].map((service, index) => (
@@ -410,7 +427,7 @@ export default function HomePage() {
             {[
               {
                 nameKey: "engine",
-                image: "/engine-parts-red.jpg",
+                image: "/car-engine-parts.jpg",
                 descKey: "engineDesc",
               },
               {
@@ -420,12 +437,12 @@ export default function HomePage() {
               },
               {
                 nameKey: "suspension",
-                image: "/suspension-red.jpg",
+                image: "/suspension-parts.jpg",
                 descKey: "suspensionDesc",
               },
               {
                 nameKey: "electrical",
-                image: "/electrical-red.jpg",
+                image: "/electrical.jpeg",
                 descKey: "electricalDesc",
               },
             ].map((product, index) => (
@@ -553,18 +570,21 @@ export default function HomePage() {
                 titleKey: "showroom",
                 contentKey: "showroomContent",
                 actionKey: "directions",
+                link: "https://www.google.com/maps"
               },
               {
                 icon: Phone,
                 titleKey: "experts",
                 contentKey: "expertsContent",
                 actionKey: "call",
+                link: ""
               },
               {
                 icon: Mail,
                 titleKey: "support",
                 contentKey: "supportContent",
                 actionKey: "email",
+                link: "mailto:ov.automotive.group@outlook.com"
               },
             ].map((contact, index) => (
               <Card
@@ -591,13 +611,15 @@ export default function HomePage() {
                       ]
                     }
                   </p>
-                  <Button className="bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-white rounded-full px-4 sm:px-6 py-2 text-sm sm:text-base w-full sm:w-auto">
-                    {
-                      t.contact.actions[
-                        contact.actionKey as keyof typeof t.contact.actions
-                      ]
-                    }
-                  </Button>
+                  <Link href={contact.link}>
+                    <Button className="cursor-pointer bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-white rounded-full px-4 sm:px-6 py-2 text-sm sm:text-base w-full sm:w-auto">
+                      {
+                        t.contact.actions[
+                          contact.actionKey as keyof typeof t.contact.actions
+                        ]
+                      }
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
@@ -621,14 +643,16 @@ export default function HomePage() {
               <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
                 {t.footer.description}
               </p>
+              {/* Change social media icons */}
               <div className="flex space-x-3 sm:space-x-4">
-                {[Facebook, Instagram, Linkedin].map((Icon, index) => (
-                  <div
-                    key={index}
+                {socialLinks.map(({Icon, link}, idx) => (
+                  <a
+                  href={link}
+                    key={idx}
                     className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 hover:bg-gradient-to-br hover:from-red-600 hover:to-red-800 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300"
                   >
                     <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>
@@ -658,12 +682,11 @@ export default function HomePage() {
                 <ul className="space-y-2 sm:space-y-3">
                   {section.items.map((item, itemIndex) => (
                     <li key={itemIndex}>
-                      <Link
-                        href="#"
+                      <p
                         className="text-gray-400 hover:text-red-400 transition-colors text-sm sm:text-base"
                       >
                         {t.footer.items[item as keyof typeof t.footer.items]}
-                      </Link>
+                      </p>
                     </li>
                   ))}
                 </ul>
@@ -677,13 +700,12 @@ export default function HomePage() {
             </p>
             <div className="flex flex-wrap justify-center sm:justify-end space-x-4 sm:space-x-6">
               {["privacy", "terms", "cookies"].map((item) => (
-                <Link
+                <p
                   key={item}
-                  href="#"
                   className="text-gray-400 hover:text-red-400 text-xs sm:text-sm transition-colors"
                 >
                   {t.footer.legal[item as keyof typeof t.footer.legal]}
-                </Link>
+                </p>
               ))}
             </div>
           </div>

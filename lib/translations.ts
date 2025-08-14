@@ -27,6 +27,7 @@ export const translations = {
         retail: "Premium Retail",
         wholesale: "Wholesale Distribution",
         technical: "Technical Support",
+        B2B: "B2B"
       },
       descriptions: {
         retailDesc:
@@ -35,6 +36,9 @@ export const translations = {
           "Comprehensive wholesale solutions for automotive businesses with competitive pricing and bulk availability.",
         technicalDesc:
           "Professional technical guidance and installation support from our certified automotive specialists.",
+        b2bDesc: 
+          "Tailored B2B partnerships offering exclusive automotive solutions, streamlined ordering, and dedicated account support."
+
       },
       features: {
         consultation: "Expert Consultation",
@@ -93,7 +97,7 @@ export const translations = {
       content: {
         showroomContent: "Experience our premium collection in person at our modern facility in Pristina, Kosovo.",
         expertsContent: "Speak directly with our automotive specialists for personalized recommendations.",
-        supportContent: "Send us your inquiries and we'll respond with detailed information and quotes.",
+        supportContent: "Send us your inquiries      and we'll respond with detailed information and quotes.",
       },
       actions: {
         directions: "Get Directions",
@@ -117,12 +121,12 @@ export const translations = {
         brake: "Brake Systems",
         suspension: "Suspension Parts",
         electrical: "Electrical Systems",
-        location: "Pristina, Kosovo",
-        phone: "+383 XX XXX XXX",
-        email: "info@ovautomotive.com",
+        location: "Gjilan, Kosovo",
+        phone: "+383 44 277 718",
+        email: "ov.automotive.group@outlook.com",
         hours: "Mon-Sat 8AM-6PM",
       },
-      copyright: "© 2024 OV Automotive Group. All rights reserved.",
+      copyright: "© 2025 OV Automotive Group. All rights reserved | Powered by SOLIS Dev",
       legal: {
         privacy: "Privacy Policy",
         terms: "Terms of Service",
@@ -148,7 +152,6 @@ export const translations = {
         "Duke ngritur peizazhin automobilistik të Kosovës me komponentë premium dhe ekspertizë të pakrahasueshme.",
       cta: {
         explore: "Eksploroni Koleksionin",
-        watch: "Shikoni Historinë",
       },
     },
     services: {
@@ -160,6 +163,7 @@ export const translations = {
         retail: "Shitje Premium me Pakicë",
         wholesale: "Shpërndarje me Shumicë",
         technical: "Mbështetje Teknike",
+        B2B: "B2B"
       },
       descriptions: {
         retailDesc:
@@ -168,6 +172,7 @@ export const translations = {
           "Zgjidhje gjithëpërfshirëse me shumicë për bizneset automobilistike me çmime konkurruese dhe disponueshmëri në sasi të mëdha.",
         technicalDesc:
           "Udhëzim profesional teknik dhe mbështetje instalimi.",
+        b2bDesc: "Partneritete B2B të përshtatura që ofrojnë zgjidhje ekskluzive automobilistike, porosi të thjeshtëzuara dhe mbështetje të dedikuar për llogari."
       },
       features: {
         consultation: "Konsultim Ekspert",
@@ -258,7 +263,7 @@ export const translations = {
         email: "ov.automotive.group@outlook.com",
         hours: "Hën-Sht 8AM-6PM",
       },
-      copyright: "© 2025 OV Automotive Group. Të gjitha të drejtat e rezervuara.",
+      copyright: "© 2025 OV Automotive Group. Të gjitha të drejtat e rezervuara. | Powered by SOLIS Dev",
       legal: {
         privacy: "Privacy Policy",
         terms: "Terms of Service",
