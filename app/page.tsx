@@ -35,7 +35,7 @@ interface SocialLink {
 
 const socialLinks: SocialLink[] = [
   { Icon: Facebook, link: 'https://www.facebook.com/' },
-  { Icon: Instagram, link: 'https://www.instagram.com/' },
+  { Icon: Instagram, link: 'https://www.instagram.com/ovautomotivegroup/' },
 ];
 
 
@@ -254,14 +254,16 @@ export default function HomePage() {
         <div className="absolute inset-0">
           {/* Hero Image */}
           <Image
-            src="/luxury-automotive-hero-red.jpg"
+            //src="/car.jpg"
+            src="/mg-i.jpg"
+            //src="/luxury-automotive-hero-red.jpg"
             alt="Luxury automotive workshop"
             fill
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-red-900/30"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/60 to-red-900/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
         </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
@@ -427,22 +429,22 @@ export default function HomePage() {
             {[
               {
                 nameKey: "engine",
-                image: "/car-engine-parts.jpg",
+                image: "/engine.jpg",
                 descKey: "engineDesc",
               },
               {
                 nameKey: "brake",
-                image: "/brake-systems-red.jpg",
+                image: "/brake.png",
                 descKey: "brakeDesc",
               },
               {
                 nameKey: "suspension",
-                image: "/suspension-parts.jpg",
+                image: "/suspension.png",
                 descKey: "suspensionDesc",
               },
               {
                 nameKey: "electrical",
-                image: "/electrical.jpeg",
+                image: "/electric.png",
                 descKey: "electricalDesc",
               },
             ].map((product, index) => (
@@ -524,7 +526,8 @@ export default function HomePage() {
             <div className="relative">
               <div className="aspect-square rounded-2xl sm:rounded-3xl overflow-hidden border border-red-900/30">
                 <Image
-                  src="/automotive-workshop-team-red.jpg"
+                  src="/store.jpg"
+                  //src="/automotive-workshop-team-red.jpg"
                   alt="OV Automotive Group team"
                   fill
                   className="object-cover"
@@ -570,7 +573,7 @@ export default function HomePage() {
                 titleKey: "showroom",
                 contentKey: "showroomContent",
                 actionKey: "directions",
-                link: "https://www.google.com/maps"
+                link: "https://www.google.com/maps/@42.4739237,21.4796676,190m/data=!3m1!1e3!5m2!1e1!1e4?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D"
               },
               {
                 icon: Phone,
