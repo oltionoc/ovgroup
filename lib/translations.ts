@@ -126,7 +126,7 @@ export const translations = {
         email: "ov.automotive.group@outlook.com",
         hours: "Mon-Sat 8AM-6PM",
       },
-      copyright: "© 2025 OV Automotive Group. All rights reserved | Powered by SOLIS Dev",
+      copyright: "© 2025 OV AUTOMOTIVE GROUP. All rights reserved | Powered by SOLIS Dev",
       legal: {
         privacy: "Privacy Policy",
         terms: "Terms of Service",
@@ -263,7 +263,7 @@ export const translations = {
         email: "ov.automotive.group@outlook.com",
         hours: "Hën-Sht 8AM-6PM",
       },
-      copyright: "© 2025 OV Automotive Group. Të gjitha të drejtat e rezervuara. | Powered by SOLIS Dev",
+      copyright: "© 2025 OV AUTOMOTIVE GROUP. Të gjitha të drejtat e rezervuara. | Powered by SOLIS Dev",
       legal: {
         privacy: "Privacy Policy",
         terms: "Terms of Service",
