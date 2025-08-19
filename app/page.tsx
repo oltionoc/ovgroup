@@ -104,7 +104,7 @@ export default function HomePage() {
             {/* Language Selector & Mobile Menu */}
             <div className="flex items-center space-x-2 sm:space-x-4">
               {/* Language Selector */}
-              <div className="relative group">
+              <div className="hidden relative group sm:hidden">
                 <Button
                   variant="ghost"
                   size="sm"

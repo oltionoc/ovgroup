@@ -71,7 +71,7 @@ export const translations = {
       badge: "Our Story",
       title: "Driving Excellence Forward",
       description1:
-        "OV Automotive Group stands at the forefront of Kosovo's automotive revolution, providing premium components and exceptional service to vehicle enthusiasts and professionals alike.",
+        "OV AUTOMOTIVE GROUP stands at the forefront of Kosovo's automotive revolution, providing premium components and exceptional service to vehicle enthusiasts and professionals alike.",
       description2:
         "From our state-of-the-art retail facility to our expanding wholesale operations, we're committed to delivering quality, reliability, and innovation in every interaction.",
       stats: {
@@ -205,7 +205,7 @@ export const translations = {
   badge: "Historia Jonë",
   title: "Drejtues të Industrisë Automobilistike",
   description1:
-    "OV Automotive Group po riformon tregun automobilistik në Kosovë me zgjidhje të avancuara, duke kombinuar teknologjinë më moderne me shërbime të personalizuara për entuziastët dhe profesionistët.",
+    "OV AUTOMOTIVE GROUP po riformon tregun automobilistik në Kosovë me zgjidhje të avancuara, duke kombinuar teknologjinë më moderne me shërbime të personalizuara për entuziastët dhe profesionistët.",
   description2:
     "Nga qendra jonë e shitjes me pakicë me pajisje të fundit, deri te rrjeti ynë gjithëpërfshirës i shpërndarjes me shumicë, ne vendosim standarde të reja të besueshmërisë, qëndrueshmërisë dhe inovacionit në çdo shërbim.",
   stats: {
