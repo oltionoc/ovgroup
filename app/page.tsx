@@ -104,7 +104,7 @@ export default function HomePage() {
             {/* Language Selector & Mobile Menu */}
             <div className="flex items-center space-x-2 sm:space-x-4">
               {/* Language Selector */}
-              <div className="hidden relative group sm:hidden">
+              <div className="relative group">
                 <Button
                   variant="ghost"
                   size="sm"
@@ -254,12 +254,12 @@ export default function HomePage() {
         <div className="absolute inset-0">
           {/* Hero Image */}
           <Image
-            //src="/car.jpg"
-            src="/mg-i.jpg"
+            src="/car.jpg"
+            //src="/mg-i.jpg"
             //src="/luxury-automotive-hero-red.jpg"
             alt="Luxury automotive workshop"
             fill
-            className="object-cover"
+            className="object-cover sm:object-right"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/60 to-red-900/30"></div>
