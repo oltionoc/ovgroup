@@ -34,7 +34,7 @@ interface SocialLink {
 }
 
 const socialLinks: SocialLink[] = [
-  { Icon: Facebook, link: 'https://www.facebook.com/' },
+  { Icon: Facebook, link: 'https://www.facebook.com/profile.php?id=61579211656764'},
   { Icon: Instagram, link: 'https://www.instagram.com/ovautomotivegroup/' },
 ];
 
