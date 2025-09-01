@@ -90,6 +90,7 @@ export default function HomePage() {
                 { key: "products", href: "#products" },
                 { key: "about", href: "#about" },
                 { key: "contact", href: "#contact" },
+                { key: "rent", href: "#rent" },
               ].map((item) => (
                 <Link
                   key={item.key}
@@ -190,6 +191,7 @@ export default function HomePage() {
                       { key: "products", href: "#products" },
                       { key: "about", href: "#about" },
                       { key: "contact", href: "#contact" },
+                      { key: "rent", href: "#rent" }
                     ].map((item) => (
                       <Link
                         key={item.key}
@@ -254,8 +256,8 @@ export default function HomePage() {
         <div className="absolute inset-0">
           {/* Hero Image */}
           <Image
-            src="/car.jpg"
-            //src="/mg-i.jpg"
+            //src="/car.jpg"
+            src="/hero.jpg"
             //src="/luxury-automotive-hero-red.jpg"
             alt="Luxury automotive workshop"
             fill
@@ -434,17 +436,17 @@ export default function HomePage() {
               },
               {
                 nameKey: "brake",
-                image: "/brake.png",
+                image: "/brake.jpg",
                 descKey: "brakeDesc",
               },
               {
                 nameKey: "suspension",
-                image: "/suspension.png",
+                image: "/suspension.jpg",
                 descKey: "suspensionDesc",
               },
               {
                 nameKey: "electrical",
-                image: "/electric.png",
+                image: "/electrical.jpeg",
                 descKey: "electricalDesc",
               },
             ].map((product, index) => (
@@ -478,6 +480,114 @@ export default function HomePage() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Rent a Car Coming Soon Section */}
+      <section
+        id="rent"
+        className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden"
+      >
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23ef4444' fillOpacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}
+          ></div>
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          <div className="text-center mb-12 sm:mb-16">
+            <Badge className="bg-red-900/30 text-red-400 border-red-600/40 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium mb-4 sm:mb-6 animate-pulse">
+              {currentLanguage === "en" ? "COMING SOON" : "VJEN SË SHPEJTI"}
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
+              {currentLanguage === "en" ? "Rent a Car" : "Makinë me Qira"}
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
+              {currentLanguage === "en"
+                ? "Expanding our services to provide premium vehicle rentals for your transportation needs"
+                : "Duke zgjeruar shërbimet tona për të ofruar qira automjetesh premium për nevojat tuaja të transportit"}
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
+              {[
+                {
+                  icon: Car,
+                  title: currentLanguage === "en" ? "Premium Collection" : "Koleksion Premium",
+                  description:
+                    currentLanguage === "en"
+                      ? "Modern vehicles featuring cutting-edge safety innovations"
+                      : "Automjete moderne me karakteristikat më të reja të sigurisë",
+                },
+                {
+                  icon: Shield,
+                  title: currentLanguage === "en" ? "Full Insurance" : "Sigurim i Plotë",
+                  description:
+                    currentLanguage === "en"
+                      ? "Thorough protection for your reassurance"
+                      : "Mbrojtje e plotë për sigurinë tuaj",
+                },
+                {
+                  icon: Settings,
+                  title: currentLanguage === "en" ? "24/7 Support" : "Mbështetje 24/7",
+                  description:
+                    currentLanguage === "en"
+                      ? "Round-the-clock assistance and maintenance"
+                      : "Ndihmë dhe mirëmbajtje 24 orë në ditë",
+                },
+              ].map((feature, index) => (
+                <Card
+                  key={index}
+                  className="bg-gray-800/30 border-red-900/20 backdrop-blur-sm text-center group hover:bg-gray-800/50 hover:border-red-700/40 transition-all duration-300"
+                >
+                  <CardHeader className="pb-4">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-red-600/20 to-red-800/20 border border-red-600/30 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <feature.icon className="h-6 w-6 sm:h-8 sm:w-8 text-red-400" />
+                    </div>
+                    <CardTitle className="text-lg sm:text-xl font-bold text-white mb-2">{feature.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="px-4 sm:px-6">
+                    <p className="text-gray-400 text-sm sm:text-base leading-relaxed">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {/* Coming Soon CTA */}
+            {/* <div className="text-center bg-gradient-to-r from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-red-900/30 rounded-2xl sm:rounded-3xl p-8 sm:p-12">
+              <div className="mb-6 sm:mb-8">
+                <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-red-600/20 to-red-800/20 border-2 border-red-600/30 rounded-full mb-4 sm:mb-6">
+                  <Car className="h-8 w-8 sm:h-10 sm:w-10 text-red-400" />
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">
+                  {currentLanguage === "en" ? "Be the First to Know" : "Bëhu i Pari që Mëson"}
+                </h3>
+                <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
+                  {currentLanguage === "en"
+                    ? "Get notified when our car rental service launches. Premium vehicles, competitive rates, exceptional service."
+                    : "Merr njoftim kur të nisë shërbimi ynë i qirasë së makinave. Automjete premium, çmime konkurruese, shërbim i jashtëzakonshëm."}
+                </p>
+              </div>
+
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-white rounded-full px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg font-semibold shadow-xl group disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled
+              >
+                {currentLanguage === "en" ? "Notify Me" : "Njoftomë"}
+                <ChevronRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+
+              <p className="text-xs sm:text-sm text-gray-500 mt-4">
+                {currentLanguage === "en" ? "Expected launch: Q2 2024" : "Nisja e pritshme: Q2 2024"}
+              </p>
+            </div> */}
           </div>
         </div>
       </section>

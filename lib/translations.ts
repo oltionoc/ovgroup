@@ -6,6 +6,7 @@ export const translations = {
       products: "Products",
       about: "About",
       contact: "Contact",
+      rent: "Rent a Car",
     },
     cta: {
       getStarted: "Get Started",
@@ -110,6 +111,7 @@ export const translations = {
         services: "Services",
         products: "Products",
         contact: "Contact",
+        rent: "Rent a Car",
       },
       items: {
         retail: "Premium Retail",
@@ -124,6 +126,7 @@ export const translations = {
         phone: "+383 44 277 718",
         email: "ov.automotive.group@outlook.com",
         hours: "Mon-Sat 8AM-6PM",
+        rentDesc: "Coming Soon - Premium Vehicle Rentals",
       },
       copyright: "© 2025 OV AUTOMOTIVE GROUP. All rights reserved | Powered by SOLIS Dev",
       legal: {
@@ -140,6 +143,7 @@ export const translations = {
       products: "Produktet",
       about: "Rreth Nesh",
       contact: "Kontakti",
+      rent: "Makinë me Qira"
     },
     cta: {
       getStarted: "Filloni",
@@ -247,6 +251,7 @@ export const translations = {
         services: "Shërbimet",
         products: "Produktet",
         contact: "Kontakti",
+        rent: "Makinë me Qira"
       },
       items: {
         retail: "Shitje Premium me Pakicë",
@@ -261,6 +266,7 @@ export const translations = {
         phone: "+383 44 277 718",
         email: "ov.automotive.group@outlook.com",
         hours: "Hën-Sht 8AM-6PM",
+        rentDesc: "Vjen Së Shpejti - Qira Automjetesh Premium"
       },
       copyright: "© 2025 OV AUTOMOTIVE GROUP. Të gjitha të drejtat e rezervuara. | Powered by SOLIS Dev",
       legal: {
