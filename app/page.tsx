@@ -74,8 +74,8 @@ export default function HomePage() {
           <div className="flex items-center justify-between sm:justify-center sm:space-x-8">
             <div className="flex items-center space-x-2">
               <Image
-                    src="LOGO PNG 01.png"
-                    alt="logo"
+                    src="logo.png"
+                    alt="OV AUTOMOTIVE GROUP"
                     width={220}
                     height={220}
                   />
@@ -745,13 +745,13 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="col-span-2 lg:col-span-1 space-y-4 sm:space-y-6">
-              <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2">
                   <Image
-                    src="/Logo PNG 01.png"
-                    alt="logo"
-                    width={220}
-                    height={220}
-                  />
+                      src="logo.png"
+                      alt="OV AUTOMOTIVE GROUP"
+                      width={220}
+                      height={220}
+                    />
               </div>
               <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
                 {t.footer.description}
