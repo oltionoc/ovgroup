@@ -73,13 +73,12 @@ export default function HomePage() {
         <div className="bg-gray-900/90 backdrop-blur-xl px-4 sm:px-8 py-3 sm:py-4 shadow-2xl border-b border-red-900/50">
           <div className="flex items-center justify-between sm:justify-center sm:space-x-8">
             <div className="flex items-center space-x-2">
-              <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center">
-                {/* Logo */}
-                <Car className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
-              </div>
-              <span className="font-bold text-white text-sm sm:text-base">
-                OV AUTOMOTIVE GROUP
-              </span>
+              <Image
+                    src="LOGO PNG 01.png"
+                    alt="logo"
+                    width={220}
+                    height={220}
+                  />
             </div>
 
             {/* Desktop Navigation */}
@@ -312,6 +311,7 @@ export default function HomePage() {
                   <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                   {t.hero.cta.watch}
                 </Button> */}
+
               </div>
             </div>
           </div>
@@ -746,12 +746,12 @@ export default function HomePage() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="col-span-2 lg:col-span-1 space-y-4 sm:space-y-6">
               <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center">
-                  <Car className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
-                </div>
-                <span className="text-lg sm:text-xl font-bold">
-                  OV AUTOMOTIVE
-                </span>
+                  <Image
+                    src="/Logo PNG 01.png"
+                    alt="logo"
+                    width={220}
+                    height={220}
+                  />
               </div>
               <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
                 {t.footer.description}
