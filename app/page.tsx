@@ -26,6 +26,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { translations } from "@/lib/translations";
 
+import localFont from 'next/font/local';
+
+// Import the Nebula font (only for this component)
+const nebula = localFont({
+  src: '../public/fonts/Nebula-Regular.otf', // adjust the path if needed
+  variable: '--font-nebula',
+  display: 'swap',
+});
+
 type Language = "en" | "sq";
 
 interface SocialLink {
@@ -74,7 +83,7 @@ export default function HomePage() {
           <div className="flex items-center justify-between sm:justify-center sm:space-x-8">
             <div className="flex items-center space-x-2">
               <Image
-                    src="logo.png"
+                    src="LOGO TRANSPARENTE.png"
                     alt="OV AUTOMOTIVE GROUP"
                     width={220}
                     height={220}
@@ -104,7 +113,7 @@ export default function HomePage() {
             {/* Language Selector & Mobile Menu */}
             <div className="flex items-center space-x-2 sm:space-x-4">
               {/* Language Selector */}
-              <div className="relative group">
+              <div className="hidden md:inline-block relative group">
                 <Button
                   variant="ghost"
                   size="sm"
@@ -276,19 +285,20 @@ export default function HomePage() {
                   : "translate-y-10 opacity-0"
               }`}
             >
-              <Badge className="mt-10 bg-red-900/30 backdrop-blur-sm text-red-300 border-red-600/40 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium">
+              <Badge className="mt-10 mb-0 bg-red-900/30 backdrop-blur-sm text-red-300 border-red-600/40 px-3 sm:px-4 py-0.5 sm:py-1 text-xs sm:text-sm font-medium">
                 {t.hero.badge}
               </Badge>
-
-              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white leading-tight">
+              <div className={nebula.className}>
+                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white leading-tight">
                 {t.hero.title.split(" ")[0]}
                 <br />
                 <span className="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">
                   {t.hero.title.split(" ")[1]}
                 </span>
               </h1>
+              </div>
 
-              <p className="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-2xl leading-relaxed font-light">
+              <p className="mt-0 text-lg sm:text-xl md:text-2xl text-gray-200 max-w-2xl leading-relaxed font-light">
                 {t.hero.subtitle}
               </p>
 
@@ -747,7 +757,7 @@ export default function HomePage() {
             <div className="col-span-2 lg:col-span-1 space-y-4 sm:space-y-6">
                 <div className="flex items-center space-x-2">
                   <Image
-                      src="logo.png"
+                      src="LOGO TRANSPARENTE.png"
                       alt="OV AUTOMOTIVE GROUP"
                       width={220}
                       height={220}
