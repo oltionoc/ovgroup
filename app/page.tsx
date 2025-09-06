@@ -113,7 +113,7 @@ export default function HomePage() {
             {/* Language Selector & Mobile Menu */}
             <div className="flex items-center space-x-2 sm:space-x-4">
               {/* Language Selector */}
-              <div className="hidden md:inline-block relative group">
+              <div className="hidden lg:inline-block relative group">
                 <Button
                   variant="ghost"
                   size="sm"
@@ -149,7 +149,7 @@ export default function HomePage() {
                 onClick={toggleMobileMenu}
               >
                 {isMobileMenuOpen ? (
-                  <X className="h-5 w-5" />
+                  <X className="h-full w-full" />
                 ) : (
                   <Menu className="h-5 w-5" />
                 )}
@@ -174,12 +174,12 @@ export default function HomePage() {
               >
                 <div className="flex items-center justify-between p-6 border-b border-red-900/30">
                   <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-gradient-to-r from-red-600 to-red-800 rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold text-sm">OV</span>
-                    </div>
-                    <span className="text-white font-bold text-lg">
-                      OV AUTOMOTIVE GROUP
-                    </span>
+                    <Image
+                        src="LOGO TRANSPARENTE.png"
+                        alt="OV AUTOMOTIVE GROUP"
+                        width={200}
+                        height={200}
+                  />
                   </div>
                   <Button
                     variant="ghost"
@@ -187,7 +187,7 @@ export default function HomePage() {
                     className="text-gray-300 hover:text-red-400 min-w-[44px] min-h-[44px] p-2"
                     onClick={toggleMobileMenu}
                   >
-                    <X className="h-6 w-6" />
+                    <X className="h-20 w-20"/>
                   </Button>
                 </div>
 
@@ -264,12 +264,10 @@ export default function HomePage() {
         <div className="absolute inset-0">
           {/* Hero Image */}
           <Image
-            //src="/car.jpg"
             src="/hero.jpg"
-            //src="/luxury-automotive-hero-red.jpg"
             alt="Luxury automotive workshop"
             fill
-            className="object-cover sm:object-right"
+            className="object-[center_20%] object-cover object-left-top"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/60 to-red-900/30"></div>

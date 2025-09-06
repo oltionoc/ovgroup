@@ -121,3 +121,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* globals.css */
+@media (min-width: 640px) {
+  .object-left-top {
+    object-position: left top;
+  }
+}
